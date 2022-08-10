@@ -1,5 +1,5 @@
 export interface ISubclienteGrid {
-  Codigo: string;
+  Codigo: number;
   RazonSocial: string;
   Status: number;
   Nit: number

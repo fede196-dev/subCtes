@@ -2,6 +2,8 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ISubclienteGrid } from '../../models/listado-sub-clientes/subClientes-grid.model';
+import { SubClientesService } from '../../services/sub-clientes.service';
 
 export interface UserData {
   id: string;
@@ -48,24 +50,30 @@ const NAMES: string[] = [
   templateUrl: './listado-sub-clientes.component.html',
   styleUrls: ['./listado-sub-clientes.component.scss']
 })
-export class ListadoSubClientesComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
-  dataSource: MatTableDataSource<UserData>;
-
+export class ListadoSubClientesComponent implements OnInit {
+  displayedColumns: string[] = ['Opciones','Codigo', 'RazonSocial', 'Status', 'NIT'];
+  dataSource: MatTableDataSource<ISubclienteGrid>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  subClientesItems: ISubclienteGrid [] = []
+  constructor(private subClienteService: SubClientesService) {
 
-  constructor() {
-    // Create 100 users
-    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
 
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+  ngOnInit(): void {
+    this.getSubClientesGrid();
+  }
+
+  getSubClientesGrid() {
+    this.subClienteService.getSubClientes().subscribe(subClientesItems => {
+      this.subClientesItems = subClientesItems;
+      this.dataSource = new MatTableDataSource(subClientesItems);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+      console.log(this.subClientesItems);
+
+    });
   }
 
   applyFilter(event: Event) {
