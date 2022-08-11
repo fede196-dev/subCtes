@@ -1,9 +1,11 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ISubclienteGrid } from '../../models/listado-sub-clientes/subClientes-grid.model';
 import { SubClientesService } from '../../services/sub-clientes.service';
+import { PerfilSubClienteComponent } from '../perfil-sub-cliente/perfil-sub-cliente.component';
 
 export interface UserData {
   id: string;
@@ -56,7 +58,7 @@ export class ListadoSubClientesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   subClientesItems: ISubclienteGrid [] = []
-  constructor(private subClienteService: SubClientesService) {
+  constructor(private subClienteService: SubClientesService, private dialog: MatDialog) {
 
 
   }
@@ -84,20 +86,15 @@ export class ListadoSubClientesComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  verPerfilDialog(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '60%';
+    this.dialog.open(PerfilSubClienteComponent)
+  }
+  editDialog(){
+
+  }
 }
 
-/** Builds and returns a new User. */
-function createNewUser(id: number): UserData {
-  const name =
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
-    ' ' +
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) +
-    '.';
-
-  return {
-    id: id.toString(),
-    name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))],
-  };
-}

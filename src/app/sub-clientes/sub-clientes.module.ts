@@ -2,23 +2,29 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SubClientesRoutingModule } from './sub-clientes-routing.module';
 import { ListadoSubClientesComponent } from './pages/listado-sub-clientes/listado-sub-clientes.component';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpClientModule } from '@angular/common/http';
-import {MatButtonModule} from '@angular/material/button';
-import { PerfilEmpleadoComponent } from './pages/perfil-empleado/perfil-empleado.component';
+import { MatButtonModule } from '@angular/material/button';
+import { PerfilSubClienteComponent } from './pages/perfil-sub-cliente/perfil-sub-cliente.component';
+import { RouterModule } from '@angular/router';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
     ListadoSubClientesComponent,
-    PerfilEmpleadoComponent,
+    PerfilSubClienteComponent,
   ],
   imports: [
+    RouterModule,
     CommonModule,
     SubClientesRoutingModule,
     MatPaginatorModule,
@@ -29,7 +35,13 @@ import { PerfilEmpleadoComponent } from './pages/perfil-empleado/perfil-empleado
     HttpClientModule,
     MatIconModule,
     MatTooltipModule,
-    MatButtonModule
-  ]
+    MatButtonModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatGridListModule,
+    MatSelectModule
+
+  ],
+
 })
 export class SubClientesModule { }
