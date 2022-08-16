@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
+import { ActivatedRoute, Params } from '@angular/router';
+import { SubClientesService } from '../../services/sub-clientes.service';
 
 @Component({
   selector: 'app-perfil-sub-cliente',
@@ -7,27 +10,44 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./perfil-sub-cliente.component.scss']
 })
 export class PerfilSubClienteComponent implements OnInit {
-  profileForm = this.fb.group({
-    firstName: ['', Validators.required],
-    lastName: [''],
-    address: this.fb.group({
-      street: [''],
-      city: [''],
-      state: [''],
-      zip: ['']
-    }),
-    aliases: this.fb.array([
-      this.fb.control('')
-    ])
-  });
-  constructor(private fb: FormBuilder) { }
+
+  formSubClientes: FormGroup
+  view: string;
+  codigoSubCliente: number;
+  appearance: MatFormFieldAppearance;
+  constructor(private subClienteService: SubClientesService, private _activatedRoute: ActivatedRoute) {
+    this._activatedRoute.params.subscribe(params => {
+      this.codigoSubCliente = params['id'];
+      this.view = params['view']
+    });
+
+   }
 
   ngOnInit(): void {
     this.createFormGroup();
+    if(this.codigoSubCliente){
+      this.setFormGroup();
+    }
+  }
+
+  setFormGroup(){
+      this.subClienteService.getSubClientes().subscribe(subCliente =>{
+      const found=subCliente.find(subCli => subCli.Codigo.toString() === this.codigoSubCliente.toString());
+      this.formSubClientes.controls['CodigoSubCliente'].setValue(found?.Codigo);
+      this.formSubClientes.controls['NombreCompleto'].setValue(found?.RazonSocial);
+      this.formSubClientes.controls['Status'].setValue(found?.Status);
+      this.formSubClientes.controls['NombreAbreviado'].setValue(found?.RazonSocial);
+      this.appearance='outline'
+    if(this.view === 'profile')
+    this.formSubClientes.disable();
+    }
+
+    )
+
   }
 
   createFormGroup(){
-      const form: FormGroup = new FormGroup({
+      this.formSubClientes = new FormGroup({
       CodigoSubCliente: new FormControl(null),
       NombreCompleto: new FormControl(''),
       Domicilio: new FormControl(''),
@@ -46,7 +66,7 @@ export class PerfilSubClienteComponent implements OnInit {
       DescripAbreviadaDto: new FormControl(''),
       Email: new FormControl(''),
     })
-    return form;
+
   }
 
 

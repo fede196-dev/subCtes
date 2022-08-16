@@ -10,7 +10,7 @@ const subClientesGrid: ISubclienteGrid[] = [
   {
     Codigo: 2,
     RazonSocial: 'SEVERO',
-    Status: 2,
+    Status: 0,
     Nit: 24350352
   },
   {

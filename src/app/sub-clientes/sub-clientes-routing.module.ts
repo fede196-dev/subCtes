@@ -9,7 +9,7 @@ const routes: Routes = [
     component: ListadoSubClientesComponent
   },
   {
-    path:'perfilSubCliente/:id',
+    path:'perfilSubCliente/:id/:view',
     component: PerfilSubClienteComponent
   }
 ];

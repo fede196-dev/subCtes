@@ -15,8 +15,10 @@ import { PerfilSubClienteComponent } from './pages/perfil-sub-cliente/perfil-sub
 import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatSelectModule} from '@angular/material/select';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatDialogModule,
     ReactiveFormsModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule,
+    FlexLayoutModule
 
   ],
 

@@ -1,8 +1,50 @@
-.normal-form{
-  margin: 10px;
+/* .normal-form{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap
 }
-
+ */
 .controles-container{
   width: 100%;
   padding: 5%;
+}
+
+.title-head{
+  padding-left: 2%;
+    font-size: 32px;
+    color: #f76a00;
+    flex-grow: 1;
+}
+
+.left-container{
+  padding: 0 0 0 5%;
+}
+.container-cards
+{
+  margin: 2%;
+}
+
+mat-form-field{
+  padding: 0 20px 0 0;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex{
+  border-radius: 4px 4px 0 0;
+  padding: 0.75em 0.75em 0 0;
+}
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex{
+  background-color: transparent;
+}
+img{
+  margin: 30% 0 0 0;
+  width: 70%;
+}
+:host ::ng-deep .mat-input-element:disabled,
+.mat-form-field-type-mat-native-select.mat-form-field-disabled
+.mat-form-field-infix::after{
+  color: rgb(0, 0, 0);
+}
+
+mat-label{
+  color: rgba(0, 0, 0, 0.76);
 }

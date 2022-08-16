@@ -58,7 +58,7 @@ export class ListadoSubClientesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   subClientesItems: ISubclienteGrid [] = []
-  constructor(private subClienteService: SubClientesService, private dialog: MatDialog) {
+  constructor(private subClienteService: SubClientesService) {
 
 
   }
@@ -85,13 +85,6 @@ export class ListadoSubClientesComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-  }
-  verPerfilDialog(){
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = '60%';
-    this.dialog.open(PerfilSubClienteComponent)
   }
   editDialog(){
 
