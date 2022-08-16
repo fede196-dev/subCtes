@@ -73,7 +73,6 @@ export class ListadoSubClientesComponent implements OnInit {
       this.dataSource = new MatTableDataSource(subClientesItems);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-      console.log(this.subClientesItems);
 
     });
   }
