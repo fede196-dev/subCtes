@@ -11,7 +11,12 @@ const routes: Routes = [
   {
     path:'perfilSubCliente/:id/:view',
     component: PerfilSubClienteComponent
-  }
+  },
+  {
+    path:'perfilSubCliente/:view',
+    component: PerfilSubClienteComponent
+  },
+
 ];
 
 @NgModule({

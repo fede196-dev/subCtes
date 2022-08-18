@@ -13,34 +13,38 @@
       </div>
       <div [hidden]="!expandedBox" class="expanded-box">
         <mat-card>
+          <form  [formGroup]="formFilters">
           <button class="close-button" (click)="expandBox()" mat-button>
             <mat-icon>close</mat-icon>
           </button>
-          <mat-form-field appearance="outline" floatLabel="always">
+          <mat-form-field appearance="legacy" floatLabel="always">
             <mat-label>Código de Sub Cliente</mat-label>
-            <input matInput >
+            <input matInput formControlName="CodigoSubCliente">
           </mat-form-field>
-          <mat-form-field appearance="outline" floatLabel="always">
+          <mat-form-field appearance="legacy" floatLabel="always">
             <mat-label>Razón Social</mat-label>
-            <input matInput >
+            <input matInput formControlName="RazonSocial">
           </mat-form-field>
-          <mat-form-field appearance="outline" floatLabel="always">
+          <mat-form-field appearance="legacy" floatLabel="always">
             <mat-label>Estado</mat-label>
-            <input matInput >
+            <mat-select formControlName="Status">
+              <mat-option value="1">Activo</mat-option>
+              <mat-option value="0">Inactivo</mat-option>
+            </mat-select>
           </mat-form-field>
-          <mat-form-field appearance="outline" floatLabel="always">
+          <mat-form-field appearance="legacy" floatLabel="always">
             <mat-label>NIT</mat-label>
-            <input matInput >
+            <input matInput formControlName="NIT">
           </mat-form-field>
-          <button class="search-button" (click)="expandBox()" mat-button>
-              Buscar<mat-icon >search</mat-icon>
+          <button class="search-button" (click)="findSubCliente();expandBox()" mat-button>
+            Buscar<mat-icon>search</mat-icon>
           </button>
+        </form>
         </mat-card>
-
       </div>
-      <div fxFlex="20" class="add-button"> <a mat-raised-button target="_blank">Nuevo Sub Cliente</a></div>
+      <div fxFlex="20" class="add-button"> <a [routerLink]="['perfilSubCliente','nuevo']" mat-raised-button >Nuevo Sub Cliente</a></div>
     </div>
-
+   <!--  <pre>{{formFilters.value|json}}</pre> -->
   </mat-card>
 
   <div class="mat-elevation-z8">
@@ -52,11 +56,11 @@
           <button [routerLink]="['perfilSubCliente', row.Codigo,'edit']" matTooltip="Modificar" mat-icon-button>
             <mat-icon>edit</mat-icon>
           </button>
-          <button matTooltip="Baja" color="warn" mat-icon-button>
+          <button matTooltip="Baja" color="warn"  (click)="changeStatusSubCliente(row,0)" [disabled]="row.Status!==1" mat-icon-button>
             <mat-icon>close</mat-icon>
           </button>
-          <button matTooltip="Reactivar" mat-icon-button>
-            <mat-icon class="alta-sub-cliente">done</mat-icon>
+          <button matTooltip="Reactivar" (click)="changeStatusSubCliente(row,1)" class="alta-sub-cliente" [disabled]="row.Status===1" mat-icon-button>
+            <mat-icon >done</mat-icon>
           </button>
           <button matTooltip="Relacionar" mat-icon-button>
             <mat-icon>dynamic_feed</mat-icon>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 import { ActivatedRoute, Params } from '@angular/router';
 import { SubClientesService } from '../../services/sub-clientes.service';
@@ -14,7 +14,6 @@ export class PerfilSubClienteComponent implements OnInit {
   formSubClientes: FormGroup
   view: string;
   codigoSubCliente: number;
-  appearance: MatFormFieldAppearance;
   constructor(private subClienteService: SubClientesService, private _activatedRoute: ActivatedRoute) {
     this._activatedRoute.params.subscribe(params => {
       this.codigoSubCliente = params['id'];
@@ -37,7 +36,7 @@ export class PerfilSubClienteComponent implements OnInit {
       this.formSubClientes.controls['NombreCompleto'].setValue(found?.RazonSocial);
       this.formSubClientes.controls['Status'].setValue(found?.Status);
       this.formSubClientes.controls['NombreAbreviado'].setValue(found?.RazonSocial);
-      this.appearance = 'outline'
+
 
       if (this.view === 'profile')
         this.formSubClientes.disable();

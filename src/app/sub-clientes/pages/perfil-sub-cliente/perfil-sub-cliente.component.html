@@ -1,91 +1,92 @@
 <div class="container-cards">
-  <!--   <h1 class="title-head"><span>Alta cliente</span> </h1> -->
-  <h1 class="title-head"><span>Visualización Cliente</span> </h1>
+  <h1 *ngIf="view === 'edit'" class="title-head"><span>Modificar cliente</span> </h1>
+  <h1  *ngIf="view === 'profile'" class="title-head"><span>Visualización Cliente</span> </h1>
+  <h1  *ngIf="view === 'nuevo'" class="title-head"><span>Nuevo Sub Cliente</span> </h1>
   <mat-card>
     <div>
       <form fxLayout="row" [formGroup]="formSubClientes">
         <div class="left-container" fxFlex="60%">
           <div>
-            <mat-form-field appearance="outline" floatLabel="always">
+            <mat-form-field  appearance="legacy" floatLabel="always">
               <mat-label>Código de Sub Cliente</mat-label>
               <input matInput formControlName="CodigoSubCliente">
             </mat-form-field>
-            <mat-form-field appearance="outline" floatLabel="always">
+            <mat-form-field appearance="legacy" floatLabel="always">
               <mat-label>Nombre</mat-label>
               <input matInput formControlName="NombreCompleto">
             </mat-form-field>
           </div>
           <div>
-            <mat-form-field appearance="outline" floatLabel="always">
+            <mat-form-field appearance="legacy" floatLabel="always">
               <mat-label>Status</mat-label>
               <input matInput formControlName="Status">
             </mat-form-field>
-            <mat-form-field appearance="outline" floatLabel="always">
+            <mat-form-field appearance="legacy" floatLabel="always">
               <mat-label>Nombre Abreviado</mat-label>
               <input matInput formControlName="NombreAbreviado">
             </mat-form-field>
           </div>
           <div>
-            <mat-form-field appearance="outline" floatLabel="always">
+            <mat-form-field appearance="legacy" floatLabel="always">
               <mat-label>Nro. de Teléfono</mat-label>
               <input matInput formControlName="NroTelefono">
             </mat-form-field>
-            <mat-form-field appearance="outline" floatLabel="always">
+            <mat-form-field appearance="legacy" floatLabel="always">
               <mat-label>Domicilio</mat-label>
               <input matInput formControlName="Domicilio">
             </mat-form-field>
           </div>
           <div>
-            <mat-form-field appearance="outline" floatLabel="always">
+            <mat-form-field appearance="legacy" floatLabel="always">
               <mat-label>Carnet de Identidad</mat-label>
               <input matInput formControlName="CarnetIdentidad">
             </mat-form-field>
-            <mat-form-field appearance="outline" floatLabel="always">
+            <mat-form-field appearance="legacy" floatLabel="always">
               <mat-label>Tipo Documento Cliente</mat-label>
               <input matInput formControlName="TipoDocumentoCliente">
             </mat-form-field>
           </div>
           <div>
-            <mat-form-field appearance="outline" floatLabel="always">
+            <mat-form-field appearance="legacy" floatLabel="always">
               <mat-label>Identificación Tributaria</mat-label>
               <input matInput formControlName="IdentificacionTributaria">
             </mat-form-field>
-            <mat-form-field appearance="outline" floatLabel="always">
+            <mat-form-field appearance="legacy" floatLabel="always">
               <mat-label>Fecha Alta</mat-label>
               <input matInput formControlName="FechaAlta">
             </mat-form-field>
           </div>
           <div>
-            <mat-form-field appearance="outline" floatLabel="always">
+            <mat-form-field appearance="legacy" floatLabel="always">
               <mat-label>Fecha Baja</mat-label>
               <input matInput formControlName="FechaBaja">
             </mat-form-field>
-            <mat-form-field appearance="outline" floatLabel="always">
+            <mat-form-field appearance="legacy" floatLabel="always">
               <mat-label>Fecha Actualización</mat-label>
               <input matInput formControlName="FechaActualizacion">
             </mat-form-field>
           </div>
           <div>
-            <mat-form-field appearance="outline" floatLabel="always">
+            <mat-form-field appearance="legacy" floatLabel="always">
               <mat-label>Localidad</mat-label>
               <input matInput formControlName="Localidad">
             </mat-form-field>
-            <mat-form-field appearance="outline" floatLabel="always">
+            <mat-form-field appearance="legacy" floatLabel="always">
               <mat-label>Descrip. Abreviada Localidad</mat-label>
               <input matInput formControlName="DescripAbreviadaLocalidad">
             </mat-form-field>
           </div>
           <div>
-            <mat-form-field appearance="outline" floatLabel="always">
+            <mat-form-field appearance="legacy" floatLabel="always">
               <mat-label>Departamento</mat-label>
               <input matInput formControlName="Departamento">
             </mat-form-field>
-            <mat-form-field appearance="outline" floatLabel="always">
+            <mat-form-field appearance="legacy" floatLabel="always">
               <mat-label>Descrip. Abreviada Dto.</mat-label>
               <input matInput formControlName="DescripAbreviadaDto">
             </mat-form-field>
           </div>
-          <mat-form-field appearance="outline" floatLabel="always">
+          <mat-form-field appearance="legacy" floatLabel="always">
             <mat-label>Email</mat-label>
             <input matInput formControlName="Email">
           </mat-form-field>

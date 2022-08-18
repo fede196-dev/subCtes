@@ -1,9 +1,4 @@
-/* .normal-form{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap
-}
- */
+
 .controles-container{
   width: 100%;
   padding: 5%;
@@ -31,9 +26,12 @@ mat-form-field{
 :host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex{
   border-radius: 4px 4px 0 0;
   padding: 0.75em 0.75em 0 0;
+  background-color: #f76a00;
 }
-:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex{
+
+:host ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-flex{
   background-color: transparent;
+
 }
 img{
   margin: 30% 0 0 0;
@@ -43,8 +41,24 @@ img{
 .mat-form-field-type-mat-native-select.mat-form-field-disabled
 .mat-form-field-infix::after{
   color: rgb(0, 0, 0);
+
+}
+
+:host ::ng-deep .mat-form-field mat-form-field-readonly ng-tns-c53-0 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-should-float mat-form-field-has-label ng-untouched ng-pristine ng-star-inserted mat-form-field-disabled{
+  background-color: #f76a00;
+}
+:host ::ng-deep .mat-form-field-appearance-legacy.mat-form-field-disabled .mat-form-field-underline{
+    display:none;
+    background-color: rgba(0,0,0,.42);
+    text-decoration: none;
+    height: 1px;
+}
+
+:host ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+  height: 1px;
 }
 
 mat-label{
   color: rgba(0, 0, 0, 0.76);
 }
+

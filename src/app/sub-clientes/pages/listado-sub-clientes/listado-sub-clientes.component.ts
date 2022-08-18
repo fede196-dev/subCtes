@@ -1,8 +1,10 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Form, FormControl, FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import Swal from 'sweetalert2';
 import { ISubclienteGrid } from '../../models/listado-sub-clientes/subClientes-grid.model';
 import { SubClientesService } from '../../services/sub-clientes.service';
 
@@ -21,12 +23,13 @@ export class ListadoSubClientesComponent implements OnInit {
   subClientesItems: ISubclienteGrid [] = []
   panelOpenState = false;
   expandedBox=false;
+
+  formFilters: FormGroup;
   constructor(private subClienteService: SubClientesService, public dialog: MatDialog) {
-
-
   }
 
   ngOnInit(): void {
+    this.createFormGroup();
     this.getSubClientesGrid();
   }
 
@@ -36,7 +39,6 @@ export class ListadoSubClientesComponent implements OnInit {
       this.dataSource = new MatTableDataSource(subClientesItems);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-
     });
   }
 
@@ -51,5 +53,56 @@ export class ListadoSubClientesComponent implements OnInit {
   expandBox(){
     this.expandedBox = !this.expandedBox;
   }
+  createFormGroup() {
+    this.formFilters = new FormGroup({
+      CodigoSubCliente: new FormControl(null),
+      RazonSocial: new FormControl(''),
+      Status: new FormControl("1"),
+      NIT: new FormControl(''),
+    })
+  }
+  findSubCliente(){
+
+      const codigo= this.formFilters.get(['CodigoSubCliente'])?.value;
+      const razon= this.formFilters.get(['RazonSocial'])?.value;
+      const estado =  this.formFilters.get(['Status'])?.value;
+      const nit =  this.formFilters.get(['NIT'])?.value;
+
+
+    this.subClienteService.getSubClientes().subscribe(subClientesItems => {
+      const found = subClientesItems.filter(subClientes => {
+        return subClientes.Codigo.toString() === codigo ;
+      });
+      console.log(found);
+
+      this.dataSource.data = found;
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
+  }
+  changeStatusSubCliente(subCliente: ISubclienteGrid, estado:number){
+    let texto = estado === 1 ? 'reactivará': 'dará de baja';
+    Swal.fire({
+      title: '¿Desea Realizar esta acción?',
+      text: 'Se ' + texto + ' al sub cliente ' + subCliente.RazonSocial,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: 'rgb(27 167 22)',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+         texto = estado === 1 ? 'reactivación': 'baja';
+        subCliente.Status = estado;
+        Swal.fire(
+          'Éxito!',
+          'Se efectuó la ' + texto,
+          'success'
+        )
+      }
+    })
+  }
+
 }
 
