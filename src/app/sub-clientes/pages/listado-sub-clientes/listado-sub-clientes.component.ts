@@ -61,17 +61,29 @@ export class ListadoSubClientesComponent implements OnInit {
       NIT: new FormControl(''),
     })
   }
+
+  cleanFilters()
+  {
+    this.formFilters.reset()
+  }
   findSubCliente(){
+
 
       const codigo= this.formFilters.get(['CodigoSubCliente'])?.value;
       const razon= this.formFilters.get(['RazonSocial'])?.value;
       const estado =  this.formFilters.get(['Status'])?.value;
       const nit =  this.formFilters.get(['NIT'])?.value;
 
+      if(codigo === razon === estado === nit === null){
+        this.dataSource.data = this.subClientesItems;
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      }
+
 
     this.subClienteService.getSubClientes().subscribe(subClientesItems => {
       const found = subClientesItems.filter(subClientes => {
-        return subClientes.Codigo.toString() === codigo ;
+        return subClientes.Codigo.toString() === codigo && subClientes.Status.toString() === estado  ;
       });
       console.log(found);
 

@@ -36,6 +36,9 @@
             <mat-label>NIT</mat-label>
             <input matInput formControlName="NIT">
           </mat-form-field>
+          <button class="clean-button" (click)="cleanFilters();" mat-button>
+            <mat-icon>delete</mat-icon>
+          </button>
           <button class="search-button" (click)="findSubCliente();expandBox()" mat-button>
             Buscar<mat-icon>search</mat-icon>
           </button>

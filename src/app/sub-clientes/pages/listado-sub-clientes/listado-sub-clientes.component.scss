@@ -70,7 +70,17 @@ td, th {
 }
 .search-button{
   position: absolute;
-  left: 81%;
+  left: 75%;
   bottom: 3%;
   margin: 10% 0 0 0 ;
 }
+.clean-button{
+  position: absolute;
+  left: 93%;
+  bottom:7%;
+  margin: 0;
+  padding: 0;
+  min-width: 0px;
+  line-height: 0px;
+}
+
