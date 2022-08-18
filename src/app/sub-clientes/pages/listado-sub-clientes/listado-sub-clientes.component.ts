@@ -93,7 +93,7 @@ export class ListadoSubClientesComponent implements OnInit {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-         texto = estado === 1 ? 'reactivación': 'baja';
+        texto = estado === 1 ? 'reactivación': 'baja';
         subCliente.Status = estado;
         Swal.fire(
           'Éxito!',
