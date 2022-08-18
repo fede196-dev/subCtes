@@ -5,47 +5,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ISubclienteGrid } from '../../models/listado-sub-clientes/subClientes-grid.model';
 import { SubClientesService } from '../../services/sub-clientes.service';
-import { PerfilSubClienteComponent } from '../perfil-sub-cliente/perfil-sub-cliente.component';
 
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  fruit: string;
-}
 
-/** Constants used to fill up our data base. */
-const FRUITS: string[] = [
-  'blueberry',
-  'lychee',
-  'kiwi',
-  'mango',
-  'peach',
-  'lime',
-  'pomegranate',
-  'pineapple',
-];
-const NAMES: string[] = [
-  'Maia',
-  'Asher',
-  'Olivia',
-  'Atticus',
-  'Amelia',
-  'Jack',
-  'Charlotte',
-  'Theodore',
-  'Isla',
-  'Oliver',
-  'Isabella',
-  'Jasper',
-  'Cora',
-  'Levi',
-  'Violet',
-  'Arthur',
-  'Mia',
-  'Thomas',
-  'Elizabeth',
-];
 
 @Component({
   selector: 'app-listado-sub-clientes',
@@ -58,7 +19,9 @@ export class ListadoSubClientesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   subClientesItems: ISubclienteGrid [] = []
-  constructor(private subClienteService: SubClientesService) {
+  panelOpenState = false;
+  expandedBox=false;
+  constructor(private subClienteService: SubClientesService, public dialog: MatDialog) {
 
 
   }
@@ -85,8 +48,8 @@ export class ListadoSubClientesComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  editDialog(){
-
+  expandBox(){
+    this.expandedBox = !this.expandedBox;
   }
 }
 

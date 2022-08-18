@@ -21,33 +21,34 @@ export class PerfilSubClienteComponent implements OnInit {
       this.view = params['view']
     });
 
-   }
+  }
 
   ngOnInit(): void {
     this.createFormGroup();
-    if(this.codigoSubCliente){
+    if (this.codigoSubCliente) {
       this.setFormGroup();
     }
   }
 
-  setFormGroup(){
-      this.subClienteService.getSubClientes().subscribe(subCliente =>{
-      const found=subCliente.find(subCli => subCli.Codigo.toString() === this.codigoSubCliente.toString());
+  setFormGroup() {
+    this.subClienteService.getSubClientes().subscribe(subCliente => {
+      const found = subCliente.find(subCli => subCli.Codigo.toString() === this.codigoSubCliente.toString());
       this.formSubClientes.controls['CodigoSubCliente'].setValue(found?.Codigo);
       this.formSubClientes.controls['NombreCompleto'].setValue(found?.RazonSocial);
       this.formSubClientes.controls['Status'].setValue(found?.Status);
       this.formSubClientes.controls['NombreAbreviado'].setValue(found?.RazonSocial);
-      this.appearance='outline'
-    if(this.view === 'profile')
-    this.formSubClientes.disable();
+      this.appearance = 'outline'
+
+      if (this.view === 'profile')
+        this.formSubClientes.disable();
     }
 
     )
 
   }
 
-  createFormGroup(){
-      this.formSubClientes = new FormGroup({
+  createFormGroup() {
+    this.formSubClientes = new FormGroup({
       CodigoSubCliente: new FormControl(null),
       NombreCompleto: new FormControl(''),
       Domicilio: new FormControl(''),
@@ -58,7 +59,7 @@ export class PerfilSubClienteComponent implements OnInit {
       TipoDocumentoCliente: new FormControl(''),
       IdentificacionTributaria: new FormControl(''),
       FechaAlta: new FormControl(''),
-      FechaBaja:new FormControl(''),
+      FechaBaja: new FormControl(''),
       FechaActualizacion: new FormControl(''),
       Localidad: new FormControl(''),
       DescripAbreviadaLocalidad: new FormControl(''),

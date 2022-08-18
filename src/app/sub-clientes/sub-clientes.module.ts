@@ -19,6 +19,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     MatGridListModule,
     MatSelectModule,
     MatCardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatExpansionModule
 
   ],
 
