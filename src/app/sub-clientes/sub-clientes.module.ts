@@ -20,11 +20,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatExpansionModule } from '@angular/material/expansion';
+import { ProfileInfoComponent } from './components/profile-info/profile-info.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
     ListadoSubClientesComponent,
     PerfilSubClienteComponent,
+    ProfileInfoComponent,
   ],
   imports: [
     RouterModule,
@@ -45,7 +49,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatSelectModule,
     MatCardModule,
     FlexLayoutModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDividerModule,
+    MatListModule
 
   ],
 

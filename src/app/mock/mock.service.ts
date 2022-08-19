@@ -1,7 +1,7 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Injectable } from '@angular/core';
  import subClientesGrid from './data/subClientes.mock';
-
+ import historialCambios from './data/historialCambios.mock';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +9,8 @@ import { Injectable } from '@angular/core';
 export class MockService implements InMemoryDbService {
   createDb(): any {
     return {
-      subClientesGrid
+      subClientesGrid,
+      historialCambios
     };
   }
 }

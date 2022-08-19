@@ -12,7 +12,8 @@ const routes: Routes = [
   },
   {
     path: 'listado',
-    loadChildren: () => import('./sub-clientes/sub-clientes.module').then(m => m.SubClientesModule)
+    loadChildren: () => import('./sub-clientes/sub-clientes.module').then(m => m.SubClientesModule),
+    data: {breadcrumb: { skip: true }},
   }
 ];
 
