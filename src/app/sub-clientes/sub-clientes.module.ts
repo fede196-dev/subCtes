@@ -20,15 +20,21 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatExpansionModule } from '@angular/material/expansion';
-import { ProfileInfoComponent } from './components/profile-info/profile-info.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { HistorialCambiosComponent } from './components/perfil-sub-cliente/historial-cambios/historial-cambios.component';
+import { RelacionesComponent } from './components/perfil-sub-cliente/relaciones/relaciones.component';
+import { InfoSubClienteComponent } from './components/perfil-sub-cliente/info-sub-cliente/info-sub-cliente.component';
+import { RelacionesSubClientesComponent } from './pages/relaciones-sub-clientes/relaciones-sub-clientes.component';
 
 @NgModule({
   declarations: [
     ListadoSubClientesComponent,
     PerfilSubClienteComponent,
-    ProfileInfoComponent,
+    HistorialCambiosComponent,
+    RelacionesComponent,
+    InfoSubClienteComponent,
+    RelacionesSubClientesComponent,
   ],
   imports: [
     RouterModule,

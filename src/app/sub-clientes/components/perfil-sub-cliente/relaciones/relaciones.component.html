@@ -1,0 +1,36 @@
+<div [ngClass]="options ? 'view-table':''">
+  <mat-card>
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="Cliente">
+        <th mat-header-cell *matHeaderCellDef>
+          Cod. Cliente
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.ClienteID }}</td>
+      </ng-container>
+      <ng-container matColumnDef="Opciones" *ngIf="options === true">
+        <th mat-header-cell *matHeaderCellDef>
+          Opciones
+        </th>
+        <td mat-cell *matCellDef="let row">
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="DescripCliente">
+        <th mat-header-cell *matHeaderCellDef>
+          Descripción Cliente
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.DescripCliente }}</td>
+      </ng-container>
+      <ng-container matColumnDef="Status">
+        <th mat-header-cell *matHeaderCellDef>
+          Estado
+        </th>
+        <td [ngClass]="row.Status === 1 ? 'status-green':'status-red'" mat-cell *matCellDef="let row">{{row.Status ===
+          1 ? 'Activo': 'Inactivo'}}</td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </mat-card>
+</div>

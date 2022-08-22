@@ -11,158 +11,17 @@
   <mat-list>
     <mat-list-item>Información Sub Cliente</mat-list-item>
     <mat-card>
-      <div>
-        <form fxLayout="row" [formGroup]="formSubClientes">
-          <div class="left-container" fxFlex="60%">
-            <div>
-              <mat-form-field appearance="legacy" floatLabel="always">
-                <mat-label>Código de Sub Cliente</mat-label>
-                <input matInput formControlName="CodigoSubCliente" />
-              </mat-form-field>
-              <mat-form-field appearance="legacy" floatLabel="always">
-                <mat-label>Nombre</mat-label>
-                <input matInput formControlName="NombreCompleto" />
-              </mat-form-field>
-            </div>
-            <div>
-              <mat-form-field appearance="legacy" floatLabel="always">
-                <mat-label>Status</mat-label>
-                <input
-                  [ngClass]="active ? 'status-green' : 'status-red'"
-                  matInput
-                  formControlName="Status"
-                />
-              </mat-form-field>
-              <mat-form-field appearance="legacy" floatLabel="always">
-                <mat-label>Nombre Abreviado</mat-label>
-                <input matInput formControlName="NombreAbreviado" />
-              </mat-form-field>
-            </div>
-            <div>
-              <mat-form-field appearance="legacy" floatLabel="always">
-                <mat-label>Nro. de Teléfono</mat-label>
-                <input matInput formControlName="NroTelefono" />
-              </mat-form-field>
-              <mat-form-field appearance="legacy" floatLabel="always">
-                <mat-label>Domicilio</mat-label>
-                <input matInput formControlName="Domicilio" />
-              </mat-form-field>
-            </div>
-            <div>
-              <mat-form-field appearance="legacy" floatLabel="always">
-                <mat-label>Carnet de Identidad</mat-label>
-                <input matInput formControlName="CarnetIdentidad" />
-              </mat-form-field>
-              <mat-form-field appearance="legacy" floatLabel="always">
-                <mat-label>Tipo Documento Cliente</mat-label>
-                <input matInput formControlName="TipoDocumentoCliente" />
-              </mat-form-field>
-            </div>
-            <div>
-              <mat-form-field appearance="legacy" floatLabel="always">
-                <mat-label>Identificación Tributaria</mat-label>
-                <input matInput formControlName="IdentificacionTributaria" />
-              </mat-form-field>
-              <mat-form-field appearance="legacy" floatLabel="always">
-                <mat-label>Fecha Alta</mat-label>
-                <input matInput formControlName="FechaAlta" />
-              </mat-form-field>
-            </div>
-            <div>
-              <mat-form-field appearance="legacy" floatLabel="always">
-                <mat-label>Fecha Baja</mat-label>
-                <input matInput formControlName="FechaBaja" />
-              </mat-form-field>
-              <mat-form-field appearance="legacy" floatLabel="always">
-                <mat-label>Fecha Actualización</mat-label>
-                <input matInput formControlName="FechaActualizacion" />
-              </mat-form-field>
-            </div>
-            <div>
-              <mat-form-field appearance="legacy" floatLabel="always">
-                <mat-label>Localidad</mat-label>
-                <input matInput formControlName="Localidad" />
-              </mat-form-field>
-              <mat-form-field appearance="legacy" floatLabel="always">
-                <mat-label>Descrip. Abreviada Localidad</mat-label>
-                <input matInput formControlName="DescripAbreviadaLocalidad" />
-              </mat-form-field>
-            </div>
-            <div>
-              <mat-form-field appearance="legacy" floatLabel="always">
-                <mat-label>Departamento</mat-label>
-                <input matInput formControlName="Departamento" />
-              </mat-form-field>
-              <mat-form-field appearance="legacy" floatLabel="always">
-                <mat-label>Descrip. Abreviada Dto.</mat-label>
-                <input matInput formControlName="DescripAbreviadaDto" />
-              </mat-form-field>
-            </div>
-            <mat-form-field appearance="legacy" floatLabel="always">
-              <mat-label>Email</mat-label>
-              <input matInput formControlName="Email" />
-            </mat-form-field>
-          </div>
-          <div fxFlex="40%">
-            <img src="assets/img/maxresdefault.jpg" />
-          </div>
-        </form>
-      </div>
+      <app-info-sub-cliente [codigoSubCliente]='codigoSubCliente' [view]='view'></app-info-sub-cliente>
     </mat-card>
-
     <mat-divider></mat-divider>
 
-    <mat-accordion multi>
+    <mat-accordion *ngIf="view === 'profile' || view === 'edit'" multi>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title> Historial de Cambios </mat-panel-title>
         </mat-expansion-panel-header>
         <mat-card>
-          <div>
-            <table mat-table [dataSource]="dataSource">
-              <ng-container matColumnDef="Cliente">
-                <th mat-header-cell *matHeaderCellDef >
-                  Cod. Cliente
-                </th>
-                <td mat-cell *matCellDef="let row">{{ row.ClienteID }}</td>
-              </ng-container>
-
-              <ng-container matColumnDef="FechaMod">
-                <th mat-header-cell *matHeaderCellDef >
-                  Fecha Modificación
-                </th>
-                <td
-                  mat-cell
-                  class="name-select"
-                  [routerLink]="['perfilSubCliente', row.Codigo, 'profile']"
-                  *matCellDef="let row"
-                >
-                  {{ row.FechaMod }}
-                </td>
-              </ng-container>
-
-              <ng-container matColumnDef="DescripCliente">
-                <th mat-header-cell *matHeaderCellDef >
-                  Descripción Cliente
-                </th>
-                <td mat-cell *matCellDef="let row">{{ row.DescripCliente }}</td>
-              </ng-container>
-
-              <ng-container matColumnDef="DescripCambio">
-                <th mat-header-cell *matHeaderCellDef >
-                  Descripción Cambio
-                </th>
-                <td mat-cell *matCellDef="let row">{{ row.DescripCambio }}</td>
-              </ng-container>
-
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-            </table>
-            <mat-paginator
-              [pageSizeOptions]="[5, 10, 25, 100]"
-              aria-label="Select page of users"
-            ></mat-paginator>
-          </div>
+          <app-historial-cambios></app-historial-cambios>
         </mat-card>
       </mat-expansion-panel>
       <mat-divider></mat-divider>
@@ -170,12 +29,8 @@
         <mat-expansion-panel-header>
           <mat-panel-title> Relaciones con Clientes </mat-panel-title>
         </mat-expansion-panel-header>
-        <mat-card>
-        </mat-card>
-
+          <app-relaciones [options]="false"></app-relaciones>
       </mat-expansion-panel>
-
     </mat-accordion>
-
   </mat-list>
 </div>

@@ -1,5 +1,4 @@
 <div class="view-table">
-
   <mat-card>
     <div fxLayout="row" fxLayoutAlign="center start">
       <mat-form-field fxFlex="20" class="filter" appearance="standard">
@@ -64,7 +63,7 @@
           <button matTooltip="Reactivar" (click)="changeStatusSubCliente(row,1)" class="alta-sub-cliente" [disabled]="row.Status===1" mat-icon-button>
             <mat-icon >done</mat-icon>
           </button>
-          <button matTooltip="Relacionar" mat-icon-button>
+          <button [routerLink]="['relaciones', row.Codigo]" matTooltip="Relacionar" mat-icon-button>
             <mat-icon>dynamic_feed</mat-icon>
           </button>
           <button [routerLink]="['perfilSubCliente', row.Codigo,'profile']" routerLinkActive

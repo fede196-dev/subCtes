@@ -4,4 +4,5 @@ export interface IHistorialCambios {
   FechaMod: string;
   DescripCliente: string;
   DescripCambio: string;
+  Status: number;
 }

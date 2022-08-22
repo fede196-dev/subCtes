@@ -1,4 +1,5 @@
-import { IHistorialCambios } from "src/app/sub-clientes/models/listado-sub-clientes/historialCambios";
+import { IHistorialCambios } from "src/app/sub-clientes/models/perfil-sub-cliente/historialCambios";
+
 
 const historialCambios: IHistorialCambios[] = [
   {
@@ -7,6 +8,7 @@ const historialCambios: IHistorialCambios[] = [
     FechaMod: '10/12/2014',
     DescripCliente: 'AG. JUNIOR',
     DescripCambio: 'INGRESADA NUEVA RELACIÓN',
+    Status: 1
   },
   {
     CodigoSubCliente: 1,
@@ -14,6 +16,7 @@ const historialCambios: IHistorialCambios[] = [
     FechaMod: '10/12/2016',
     DescripCliente: 'CHUI JUAN JOSE',
     DescripCambio: 'INGRESADA NUEVA RELACIÓN',
+    Status: 0
   },
   {
     CodigoSubCliente: 1,
@@ -21,6 +24,7 @@ const historialCambios: IHistorialCambios[] = [
     FechaMod: '10/12/2022',
     DescripCliente: 'G. PEÑARANDA',
     DescripCambio: 'INGRESADA NUEVA RELACIÓN',
+    Status: 0
   },
 
   {
@@ -29,6 +33,7 @@ const historialCambios: IHistorialCambios[] = [
     FechaMod: '10/12/2022',
     DescripCliente: 'D. ROMERO',
     DescripCambio: 'INGRESADA NUEVA RELACIÓN',
+    Status: 1
   },
 ];
 

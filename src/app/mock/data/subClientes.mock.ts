@@ -1,4 +1,4 @@
-import { ISubclienteGrid } from "src/app/sub-clientes/models/listado-sub-clientes/subClientes-grid.model";
+import { ISubclienteGrid } from "src/app/sub-clientes/models/perfil-sub-cliente/subClientes-grid.model";
 
 const subClientesGrid: ISubclienteGrid[] = [
   {

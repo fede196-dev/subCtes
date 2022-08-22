@@ -1,8 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
-import { IHistorialCambios } from '../models/listado-sub-clientes/historialCambios';
-import { ISubclienteGrid } from '../models/listado-sub-clientes/subClientes-grid.model';
+import { IHistorialCambios } from '../models/perfil-sub-cliente/historialCambios';
+import { ISubclienteGrid } from '../models/perfil-sub-cliente/subClientes-grid.model';
 
 @Injectable({
   providedIn: 'root'
