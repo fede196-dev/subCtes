@@ -20,6 +20,7 @@ export class RelacionesComponent implements OnInit {
   displayedColumns: string[];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  subcliente: IHistorialCambios;
   constructor(private subClienteService: SubClientesService, public dialog: MatDialog) {
   }
 
@@ -66,6 +67,10 @@ export class RelacionesComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogNewRelacionComponent, {
       width: '250px',
       data: { name: 'a', animal: 'b' },
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      this.subcliente = result;
     });
   }
 }
