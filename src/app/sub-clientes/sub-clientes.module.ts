@@ -26,6 +26,7 @@ import { HistorialCambiosComponent } from './components/perfil-sub-cliente/histo
 import { RelacionesComponent } from './components/perfil-sub-cliente/relaciones/relaciones.component';
 import { InfoSubClienteComponent } from './components/perfil-sub-cliente/info-sub-cliente/info-sub-cliente.component';
 import { RelacionesSubClientesComponent } from './pages/relaciones-sub-clientes/relaciones-sub-clientes.component';
+import { DialogNewRelacionComponent } from './components/perfil-sub-cliente/dialog-new-relacion/dialog-new-relacion.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { RelacionesSubClientesComponent } from './pages/relaciones-sub-clientes/
     RelacionesComponent,
     InfoSubClienteComponent,
     RelacionesSubClientesComponent,
+    DialogNewRelacionComponent,
   ],
   imports: [
     RouterModule,

@@ -1,36 +1,59 @@
-<div [ngClass]="options ? 'view-table':''">
+<div [ngClass]="options ? 'view-table' : ''">
   <mat-card>
+    <div class="add-button">
+      <button (click)="openDialog()" mat-raised-button>Nueva Relación</button>
+    </div>
     <table mat-table [dataSource]="dataSource">
-
       <ng-container matColumnDef="Cliente">
-        <th mat-header-cell *matHeaderCellDef>
-          Cod. Cliente
-        </th>
+        <th mat-header-cell *matHeaderCellDef>Cod. Cliente</th>
         <td mat-cell *matCellDef="let row">{{ row.ClienteID }}</td>
       </ng-container>
-      <ng-container matColumnDef="Opciones" *ngIf="options === true">
-        <th mat-header-cell *matHeaderCellDef>
-          Opciones
-        </th>
+      <ng-container matColumnDef="Opciones">
+        <th mat-header-cell *matHeaderCellDef>Opciones</th>
         <td mat-cell *matCellDef="let row">
+          <button
+            matTooltip="Baja"
+            color="warn"
+            (click)="changeStatusRelacion(row, 0)"
+            [disabled]="row.Status !== 1"
+            mat-icon-button
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+          <button
+            matTooltip="Reactivar"
+            (click)="changeStatusRelacion(row, 1)"
+            class="status-green"
+            [disabled]="row.Status === 1"
+            mat-icon-button
+          >
+            <mat-icon>done</mat-icon>
+          </button>
+          <button matTooltip="Visualizar Cliente" mat-icon-button>
+            <mat-icon>person</mat-icon>
+          </button>
         </td>
       </ng-container>
       <ng-container matColumnDef="DescripCliente">
-        <th mat-header-cell *matHeaderCellDef>
-          Descripción Cliente
-        </th>
+        <th mat-header-cell *matHeaderCellDef>Descripción Cliente</th>
         <td mat-cell *matCellDef="let row">{{ row.DescripCliente }}</td>
       </ng-container>
       <ng-container matColumnDef="Status">
-        <th mat-header-cell *matHeaderCellDef>
-          Estado
-        </th>
-        <td [ngClass]="row.Status === 1 ? 'status-green':'status-red'" mat-cell *matCellDef="let row">{{row.Status ===
-          1 ? 'Activo': 'Inactivo'}}</td>
+        <th mat-header-cell *matHeaderCellDef>Estado</th>
+        <td
+          [ngClass]="row.Status === 1 ? 'status-green' : 'status-red'"
+          mat-cell
+          *matCellDef="let row"
+        >
+          {{ row.Status === 1 ? "Activo" : "Inactivo" }}
+        </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      aria-label="Select page of users"
+    ></mat-paginator>
   </mat-card>
 </div>

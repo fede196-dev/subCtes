@@ -9,10 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PerfilSubClienteComponent implements OnInit {
 
-  formSubClientes: FormGroup
   view: string;
   codigoSubCliente: number;
-  active: boolean;
 
   constructor(private _activatedRoute: ActivatedRoute) {
     this._activatedRoute.params.subscribe(params => {

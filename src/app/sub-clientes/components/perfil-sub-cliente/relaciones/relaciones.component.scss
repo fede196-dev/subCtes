@@ -10,3 +10,23 @@ table {
 .view-table {
   padding: 2% 10% 0 10%;
 }
+.add-button {
+  position: relative;
+  margin: 2% 0 0;
+  width: 100%;
+  font-size: 10px;
+  left:85%
+}
+.mat-column-Opciones {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 28% !important;
+  width: 20% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
