@@ -32,7 +32,6 @@ export class RelacionesComponent implements OnInit {
 
   getHistorialCambios() {
     this.subClienteService.getHistorial().subscribe(historial => {
-      console.log(historial);
       this.dataSource = new MatTableDataSource(historial);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -65,12 +64,14 @@ export class RelacionesComponent implements OnInit {
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogNewRelacionComponent, {
-      width: '250px',
-      data: { name: 'a', animal: 'b' },
+      width: '50%',
+      data: {},
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
       this.subcliente = result;
+      this.historialCambios.push(this.subcliente);
+      this.dataSource.data = this.historialCambios;
+
     });
   }
 }
