@@ -1,4 +1,5 @@
-import { IClientesRelacionados } from "src/app/sub-clientes/models/perfil-sub-cliente/ClientesRelacionados.model";
+
+import { IClientesRelacionados } from "src/app/sub-clientes/models/perfil-sub-cliente/clientesRelacionados.model";
 import { ISubclienteGrid } from "src/app/sub-clientes/models/perfil-sub-cliente/subClientes-grid.model";
 
 const clientesRelacionados: IClientesRelacionados[] = [

@@ -23,6 +23,7 @@ export class ListadoSubClientesComponent implements OnInit {
   panelOpenState = false;
   expandedBox = false;
   formFilters: FormGroup;
+  subClienteFound: ISubclienteGrid;
   constructor(private subClienteService: SubClientesService) {
   }
 
@@ -31,6 +32,10 @@ export class ListadoSubClientesComponent implements OnInit {
     this.getSubClientesGrid();
   }
 
+  subCliFound(cliente:ISubclienteGrid){
+    console.log('llega',cliente);
+
+  }
   getSubClientesGrid() {
     this.subClienteService.getSubClientes().subscribe(subClientesItems => {
       this.subClientesItems = subClientesItems;
@@ -64,8 +69,6 @@ export class ListadoSubClientesComponent implements OnInit {
     this.formFilters.reset()
   }
   findSubCliente() {
-
-
     const codigo = this.formFilters.get(['CodigoSubCliente'])?.value;
     const razon = this.formFilters.get(['RazonSocial'])?.value;
     const estado = this.formFilters.get(['Status'])?.value;

@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
-import { IClientesRelacionados } from '../models/perfil-sub-cliente/ClientesRelacionados.model';
+import { IClientesRelacionados } from '../models/perfil-sub-cliente/clientesRelacionados.model';
 import { IHistorialCambios } from '../models/perfil-sub-cliente/historialCambios';
 import { ISubclienteGrid } from '../models/perfil-sub-cliente/subClientes-grid.model';
 

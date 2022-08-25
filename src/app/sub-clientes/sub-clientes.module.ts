@@ -27,6 +27,7 @@ import { RelacionesComponent } from './components/perfil-sub-cliente/relaciones/
 import { InfoSubClienteComponent } from './components/perfil-sub-cliente/info-sub-cliente/info-sub-cliente.component';
 import { RelacionesSubClientesComponent } from './pages/relaciones-sub-clientes/relaciones-sub-clientes.component';
 import { DialogNewRelacionComponent } from './components/perfil-sub-cliente/dialog-new-relacion/dialog-new-relacion.component';
+import { FiltersComponent } from './components/shared/filters/filters.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { DialogNewRelacionComponent } from './components/perfil-sub-cliente/dial
     InfoSubClienteComponent,
     RelacionesSubClientesComponent,
     DialogNewRelacionComponent,
+    FiltersComponent,
   ],
   imports: [
     RouterModule,
