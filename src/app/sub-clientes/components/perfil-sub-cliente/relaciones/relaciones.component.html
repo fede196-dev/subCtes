@@ -1,6 +1,6 @@
 <div [ngClass]="options ? 'view-table' : ''">
-  <mat-card>
-    <div class="add-button">
+  <mat-card >
+    <div  *ngIf="options" class="add-button">
       <button (click)="openDialog()" mat-raised-button>Nueva Relación</button>
     </div>
     <table mat-table [dataSource]="dataSource">

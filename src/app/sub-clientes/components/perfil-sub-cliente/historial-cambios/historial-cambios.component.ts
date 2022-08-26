@@ -24,7 +24,6 @@ export class HistorialCambiosComponent implements OnInit {
 
   getHistorialCambios() {
     this.subClienteService.getHistorial().subscribe(historial => {
-      console.log(historial);
       this.dataSource = new MatTableDataSource(historial);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;

@@ -1,0 +1,86 @@
+table {
+  width: 100%;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 40%;
+  padding: 0 2%;
+}
+td,
+th {
+  width: 25%;
+}
+.view-table {
+  padding: 2% 10% 0 10%;
+}
+.alta-sub-cliente {
+  color: green;
+}
+
+.name-select {
+  cursor: pointer;
+}
+.status-green {
+  color: green;
+}
+.status-red {
+  color: red;
+}
+
+.add-button {
+  margin: 2% 0 0;
+  width: 100%;
+  font-size: 10px;
+}
+.filter {
+  padding: 0% 0 0;
+  width: 100%;
+}
+.button-expand {
+  padding: 2.5% 0 0;
+
+  button {
+    background-color: #f79210;
+    min-width: 0px;
+    line-height: 0px;
+    padding: 0% 0 0;
+  }
+}
+.expand-white {
+  color: white;
+}
+.expanded-box {
+  position: absolute;
+  top: 70%;
+  right: 29%;
+  z-index: 1;
+  width: 50%;
+  mat-card {
+    padding: 10% 0 5% 0;
+  }
+}
+
+.close-button {
+  position: absolute;
+  left: 93%;
+  top: 3%;
+  margin: 0;
+  padding: 0;
+  min-width: 0px;
+  line-height: 0px;
+}
+.search-button {
+  position: absolute;
+  left: 75%;
+  bottom: 3%;
+  margin: 10% 0 0 0;
+}
+.clean-button {
+  position: absolute;
+  left: 93%;
+  bottom: 7%;
+  margin: 0;
+  padding: 0;
+  min-width: 0px;
+  line-height: 0px;
+}

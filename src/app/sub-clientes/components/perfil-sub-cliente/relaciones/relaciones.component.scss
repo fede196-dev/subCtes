@@ -9,13 +9,16 @@ table {
 }
 .view-table {
   padding: 2% 10% 0 10%;
+  margin: 3% 0 0 0;
+  table{
+    padding: 3% 0 0 0;
+  }
 }
 .add-button {
-  position: relative;
-  margin: 2% 0 0;
-  width: 100%;
+  position: absolute;
+  right: 5%;
+  padding: 0% 0 0 0;
   font-size: 10px;
-
 }
 .mat-column-Opciones {
   word-wrap: break-word !important;

@@ -1,12 +1,12 @@
 <div flexLayout="row" class="bread">
-  <div *ngIf="breadcrumbs.length !== 2" fxFlex="15" class="back">
+  <div *ngIf="breadcrumbs.length > 2" fxFlex="15" class="back">
     <button
 
       routerLink="{{ breadcrumbs[breadcrumbs.length - 2].url }}"
       mat-button
     >
       <mat-icon>arrow_back</mat-icon>
-      <h3 fxFlex="15">Atrás</h3>
+      <h3 fxFlex="15">Volver</h3>
     </button>
 
   </div >

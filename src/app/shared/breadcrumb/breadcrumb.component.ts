@@ -9,8 +9,11 @@ import { filter } from 'rxjs/operators';
 })
 export class BreadcrumbComponent implements OnInit {
 
-  public breadcrumbs: Breadcrumb[];
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  public breadcrumbs: Breadcrumb[] = [];
+
+  constructor(private router: Router, private route: ActivatedRoute) {
+
+   }
 
   ngOnInit() {
     let breadcrumb: Breadcrumb = {
@@ -34,8 +37,6 @@ export class BreadcrumbComponent implements OnInit {
 
     //get the child routes
     let children: ActivatedRoute[] = route.children;
-    console.log(route);
-    console.log(route.children);
 
     //return if there are no more children
     if (children.length === 0) {
@@ -65,7 +66,6 @@ export class BreadcrumbComponent implements OnInit {
         label: child.snapshot.data[ROUTE_DATA_BREADCRUMB],
         url: url
       };
-      console.log('hijo?',breadcrumb);
 
       breadcrumbs.push(breadcrumb);
 

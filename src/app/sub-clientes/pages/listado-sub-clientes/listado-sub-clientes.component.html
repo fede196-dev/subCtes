@@ -1,6 +1,4 @@
 <div class="view-table">
-
-  <app-filters (foundSubCliente)="subCliFound($event)"></app-filters>
   <mat-card>
     <div fxLayout="row" fxLayoutAlign="center start">
       <mat-form-field fxFlex="20" class="filter" appearance="standard">
@@ -11,54 +9,10 @@
           #input
         />
       </mat-form-field>
-      <div fxFlex="60" class="button-expand">
-        <button (click)="expandBox()" mat-button>
-          <mat-icon *ngIf="!expandedBox" class="expand-white"
-            >expand_more</mat-icon
-          >
-          <mat-icon *ngIf="expandedBox" class="expand-white"
-            >expand_less</mat-icon
-          >
-        </button>
+      <div fxFlex="60" class="filter">
+        <app-filters (foundSubCliente)="subCliFound($event)"></app-filters>
       </div>
-      <div [hidden]="!expandedBox" class="expanded-box">
-        <mat-card>
-          <form [formGroup]="formFilters">
-            <button class="close-button" (click)="expandBox()" mat-button>
-              <mat-icon>close</mat-icon>
-            </button>
-            <mat-form-field appearance="legacy" floatLabel="always">
-              <mat-label>Código de Sub Cliente</mat-label>
-              <input matInput formControlName="CodigoSubCliente" />
-            </mat-form-field>
-            <mat-form-field appearance="legacy" floatLabel="always">
-              <mat-label>Razón Social</mat-label>
-              <input matInput formControlName="RazonSocial" />
-            </mat-form-field>
-            <mat-form-field appearance="legacy" floatLabel="always">
-              <mat-label>Estado</mat-label>
-              <mat-select formControlName="Status">
-                <mat-option value="1">Activo</mat-option>
-                <mat-option value="0">Inactivo</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="legacy" floatLabel="always">
-              <mat-label>NIT</mat-label>
-              <input matInput formControlName="NIT" />
-            </mat-form-field>
-            <button class="clean-button" (click)="cleanFilters()" mat-button>
-              <mat-icon>delete</mat-icon>
-            </button>
-            <button
-              class="search-button"
-              (click)="findSubCliente(); expandBox()"
-              mat-button
-            >
-              Buscar<mat-icon>search</mat-icon>
-            </button>
-          </form>
-        </mat-card>
-      </div>
+
       <div fxFlex="20" class="add-button">
         <a [routerLink]="['perfilSubCliente', 'nuevo']" mat-raised-button
           >Nuevo Sub Cliente</a
