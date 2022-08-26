@@ -7,19 +7,24 @@ import { RelacionesSubClientesComponent } from './pages/relaciones-sub-clientes/
 const routes: Routes = [
   {
     path: '',
-    component: ListadoSubClientesComponent
+    component: ListadoSubClientesComponent,
+
   },
   {
-    path:'perfilSubCliente/:id/:view',
-    component: PerfilSubClienteComponent
+    path: 'perfilSubCliente/:id/:view',
+    component: PerfilSubClienteComponent,
+    data: { title: 'Perfil' }
+
   },
   {
-    path:'perfilSubCliente/:view',
-    component: PerfilSubClienteComponent
+    path: 'perfilSubCliente/:view',
+    component: PerfilSubClienteComponent,
+    data: { title: 'Nuevo' }
   },
   {
-    path:'relaciones/:id',
-    component: RelacionesSubClientesComponent
+    path: 'relaciones/:id',
+    component: RelacionesSubClientesComponent,
+    data: { title: 'Relaciones' }
   },
 
 ];

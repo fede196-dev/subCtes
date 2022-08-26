@@ -1,0 +1,59 @@
+.breadcrumb {
+  list-style: none !important;
+  list-style-type: none;
+}
+
+.breadcrumb li {
+  padding: 0;
+  display: inline;
+  font-size: 12px;
+  align-content: center;
+}
+
+.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+
+.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+ol.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+
+.breadcrumb {
+  position: absolute;
+  right: 5%;
+}
+
+button {
+  min-width: 0px;
+  line-height: 0px;
+  padding: 0% 0 0;
+  cursor: pointer;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+ul {
+  margin-block-start: 2%;
+}
+
+.bread {
+  margin: 2% 0 0 0;
+}
+
+.back {
+  position: absolute;
+  left: 1%;
+}
+
+h3 {
+  left: 100%;
+  position: absolute;
+}

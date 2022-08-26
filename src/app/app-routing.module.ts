@@ -3,15 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
 
-  {
+/*   {
     path: '',
     redirectTo: '/portalSubClientes',
     pathMatch: 'full'
-  },
+  }, */
   {
     path: 'portalSubClientes',
     loadChildren: () => import('./sub-clientes/sub-clientes.module').then(m => m.SubClientesModule),
-    data: {breadcrumb: { skip: true }},
+    data: { title: 'Listado' },
   },
   {
     path: '**',
