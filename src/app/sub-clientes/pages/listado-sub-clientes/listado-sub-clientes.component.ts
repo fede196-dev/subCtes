@@ -4,7 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import Swal from 'sweetalert2';
-import { ISubclienteGrid } from '../../models/perfil-sub-cliente/subClientes-grid.model';
+import { ISubclienteGrid } from '../../models/listado-sub-clientes/subClientes-grid.model';
 import { SubClientesService } from '../../services/sub-clientes.service';
 
 
@@ -83,7 +83,7 @@ export class ListadoSubClientesComponent implements OnInit {
 
     this.subClienteService.getSubClientes().subscribe(subClientesItems => {
       const found = subClientesItems.filter(subClientes => {
-        return subClientes.Codigo.toString() === codigo && subClientes.Status.toString() === estado;
+        return subClientes.SubClienteCodigo.toString() === codigo && subClientes.SubClienteStatus.toString() === estado;
       });
       console.log(found);
 
@@ -96,7 +96,7 @@ export class ListadoSubClientesComponent implements OnInit {
     let texto = estado === 1 ? 'reactivará' : 'dará de baja';
     Swal.fire({
       title: '¿Desea Realizar esta acción?',
-      text: 'Se ' + texto + ' al sub cliente ' + subCliente.RazonSocial,
+      text: 'Se ' + texto + ' al sub cliente ' + subCliente.SubClienteNombre,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: 'rgb(27 167 22)',
@@ -106,7 +106,7 @@ export class ListadoSubClientesComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         texto = estado === 1 ? 'reactivación' : 'baja';
-        subCliente.Status = estado;
+        subCliente.SubClienteStatus = estado;
         Swal.fire(
           'Éxito!',
           'Se efectuó la ' + texto,

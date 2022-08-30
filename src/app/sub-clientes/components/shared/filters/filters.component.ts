@@ -1,6 +1,6 @@
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ISubclienteGrid } from 'src/app/sub-clientes/models/perfil-sub-cliente/subClientes-grid.model';
+import { ISubclienteGrid } from 'src/app/sub-clientes/models/listado-sub-clientes/subClientes-grid.model';
 import { SubClientesService } from 'src/app/sub-clientes/services/sub-clientes.service';
 
 
@@ -42,7 +42,7 @@ export class FiltersComponent implements OnInit {
 
     this.subClienteService.getSubClientes().subscribe(subClientesItems => {
       const found = subClientesItems.filter(subClientes => {
-        return subClientes.Codigo.toString() === codigo && subClientes.Status.toString() === estado;
+        return subClientes.SubClienteCodigo.toString() === codigo && subClientes.SubClienteStatus.toString() === estado;
       });
       this.foundSubCliente.emit(found[0])
     });

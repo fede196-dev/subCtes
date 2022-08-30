@@ -27,7 +27,7 @@
         <th mat-header-cell *matHeaderCellDef>Opciones</th>
         <td mat-cell *matCellDef="let row">
           <button
-            [routerLink]="['perfilSubCliente', row.Codigo, 'edit']"
+            [routerLink]="['perfilSubCliente', row.SubClienteCodigo, 'edit']"
             matTooltip="Modificar"
             mat-icon-button
           >
@@ -37,7 +37,7 @@
             matTooltip="Baja"
             color="warn"
             (click)="changeStatusSubCliente(row, 0)"
-            [disabled]="row.Status !== 1"
+            [disabled]="row.SubClienteStatus !== 1"
             mat-icon-button
           >
             <mat-icon>close</mat-icon>
@@ -46,20 +46,20 @@
             matTooltip="Reactivar"
             (click)="changeStatusSubCliente(row, 1)"
             class="alta-sub-cliente"
-            [disabled]="row.Status === 1"
+            [disabled]="row.SubClienteStatus === 1"
             mat-icon-button
           >
             <mat-icon>done</mat-icon>
           </button>
           <button
-            [routerLink]="['relaciones', row.Codigo]"
+            [routerLink]="['relaciones', row.SubClienteCodigo]"
             matTooltip="Relacionar"
             mat-icon-button
           >
             <mat-icon>dynamic_feed</mat-icon>
           </button>
           <button
-            [routerLink]="['perfilSubCliente', row.Codigo, 'profile']"
+            [routerLink]="['perfilSubCliente', row.SubClienteCodigo, 'profile']"
             routerLinkActive
             matTooltip="Visualizar Perfil"
             mat-icon-button
@@ -71,7 +71,7 @@
 
       <ng-container matColumnDef="Codigo">
         <th mat-header-cell *matHeaderCellDef>Código</th>
-        <td mat-cell *matCellDef="let row">{{ row.Codigo }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.SubClienteCodigo }}</td>
       </ng-container>
 
       <ng-container matColumnDef="RazonSocial">
@@ -79,27 +79,27 @@
         <td
           mat-cell
           class="name-select"
-          [routerLink]="['perfilSubCliente', row.Codigo, 'profile']"
+          [routerLink]="['perfilSubCliente', row.SubClienteCodigo, 'profile']"
           *matCellDef="let row"
         >
-          {{ row.RazonSocial }}
+          {{ row.SubClienteNombreAbreviado }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="Status">
         <th mat-header-cell *matHeaderCellDef>Status</th>
         <td
-          [ngClass]="row.Status === 1 ? 'status-green' : 'status-red'"
+          [ngClass]="row.SubClienteStatus === 1 ? 'status-green' : 'status-red'"
           mat-cell
           *matCellDef="let row"
         >
-          {{ row.Status === 1 ? "Activo" : "Inactivo" }}
+          {{ row.SubClienteStatus === 1 ? "Activo" : "Inactivo" }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="NIT">
         <th mat-header-cell *matHeaderCellDef>NIT</th>
-        <td mat-cell *matCellDef="let row">{{ row.Nit }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.SubClienteIdentificacionTributaria }}</td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
