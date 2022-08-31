@@ -1,9 +1,9 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
-import { IClientesRelacionados } from '../models/perfil-sub-cliente/clientesRelacionados.model';
-import { IHistorialCambios } from '../models/perfil-sub-cliente/historialCambios';
-import { ISubclienteGrid } from '../models/listado-sub-clientes/subClientes-grid.model';
+import { IClientesRelacionados } from '../models/response/perfil-sub-cliente/clientesRelacionados.model';
+import { IHistorialCambios } from '../models/response/perfil-sub-cliente/historialCambios.model';
+import { ISubclienteGrid } from '../models/response/listado-sub-clientes/subClientes-grid.model';
 
 @Injectable({
   providedIn: 'root'

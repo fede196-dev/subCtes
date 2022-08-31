@@ -1,4 +1,4 @@
-import { IHistorialCambios } from "src/app/sub-clientes/models/perfil-sub-cliente/historialCambios";
+import { IHistorialCambios } from "src/app/sub-clientes/models/response/perfil-sub-cliente/historialCambios.model";
 
 
 const historialCambios: IHistorialCambios[] = [

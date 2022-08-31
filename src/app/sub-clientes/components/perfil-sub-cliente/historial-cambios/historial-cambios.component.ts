@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { IHistorialCambios } from 'src/app/sub-clientes/models/perfil-sub-cliente/historialCambios';
+import { IHistorialCambios } from 'src/app/sub-clientes/models/response/perfil-sub-cliente/historialCambios.model';
 import { SubClientesService } from 'src/app/sub-clientes/services/sub-clientes.service';
 
 @Component({

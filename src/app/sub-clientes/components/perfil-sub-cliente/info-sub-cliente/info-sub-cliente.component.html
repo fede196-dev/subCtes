@@ -1,12 +1,12 @@
 <div>
   <form fxLayout="row" [formGroup]="formSubClientes">
-    <div class="left-container" fxFlex="60%">
+    <div class="left-container" fxFlex="70%">
       <div>
         <mat-form-field appearance="legacy" floatLabel="always">
           <mat-label>Código de Sub Cliente</mat-label>
           <input matInput formControlName="CodigoSubCliente" />
         </mat-form-field>
-        <mat-form-field appearance="legacy" floatLabel="always">
+        <mat-form-field appearance="legacy" [ngClass]="formSubClientes.value.NombreCompleto.length > 20 ? 'space' : ''"  floatLabel="always">
           <mat-label>Nombre</mat-label>
           <input matInput formControlName="NombreCompleto" />
         </mat-form-field>
@@ -26,7 +26,7 @@
           <mat-label>Nro. de Teléfono</mat-label>
           <input matInput formControlName="NroTelefono" />
         </mat-form-field>
-        <mat-form-field appearance="legacy" floatLabel="always">
+        <mat-form-field appearance="legacy" [ngClass]="formSubClientes.value.Domicilio.length > 20 ? 'space' : ''" floatLabel="always">
           <mat-label>Domicilio</mat-label>
           <input matInput formControlName="Domicilio" />
         </mat-form-field>
@@ -86,7 +86,7 @@
         <input matInput formControlName="Email" />
       </mat-form-field>
     </div>
-    <div fxFlex="40%">
+    <div fxFlex="30%">
       <img src="assets/img/maxresdefault.jpg" />
     </div>
   </form>

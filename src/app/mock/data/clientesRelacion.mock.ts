@@ -1,5 +1,5 @@
 
-import { IClientesRelacionados } from "src/app/sub-clientes/models/perfil-sub-cliente/clientesRelacionados.model";
+import { IClientesRelacionados } from "src/app/sub-clientes/models/response/perfil-sub-cliente/clientesRelacionados.model";
 
 
 const clientesRelacionados: IClientesRelacionados[] = [

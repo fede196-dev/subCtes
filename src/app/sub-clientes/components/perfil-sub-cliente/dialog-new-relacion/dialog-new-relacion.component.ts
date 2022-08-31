@@ -2,8 +2,8 @@ import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { IClientesRelacionados } from 'src/app/sub-clientes/models/perfil-sub-cliente/clientesRelacionados.model';
-import { IHistorialCambios } from 'src/app/sub-clientes/models/perfil-sub-cliente/historialCambios';
+import { IClientesRelacionados } from 'src/app/sub-clientes/models/response/perfil-sub-cliente/clientesRelacionados.model';
+import { IHistorialCambios } from 'src/app/sub-clientes/models/response/perfil-sub-cliente/historialCambios.model';
 import { SubClientesService } from 'src/app/sub-clientes/services/sub-clientes.service';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ISubclienteGrid } from 'src/app/sub-clientes/models/listado-sub-clientes/subClientes-grid.model';
+import { ISubclienteGrid } from 'src/app/sub-clientes/models/response/listado-sub-clientes/subClientes-grid.model';
 import { SubClientesService } from 'src/app/sub-clientes/services/sub-clientes.service';
 
 

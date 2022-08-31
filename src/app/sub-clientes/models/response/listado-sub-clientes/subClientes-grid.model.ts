@@ -1,5 +1,5 @@
 export interface ISubclienteGrid {
-  SubClienteCodigo: number;
+  SubClienteCodigo: string;
   SubClienteNombre: string
   SubClienteNombreAbreviado: string;
   SubClienteDomicilio: string;
@@ -9,8 +9,10 @@ export interface ISubclienteGrid {
   SubClienteCarnetIdentidad: string;
   SubClienteTipoDocumento: number;
   SubClienteEmail: string;
-  SubClienteLocalidadCodigo:string;
-  SubClienteLocalidad:string;
-  SubClienteDepartamentoCodigo:number;
-  SubClienteDepartamento:string;
+  SubClienteLocalidadCodigo: string;
+  SubClienteLocalidad: string;
+  SubClienteDepartamentoCodigo: number;
+  SubClienteDepartamento: string;
 }
+
+
