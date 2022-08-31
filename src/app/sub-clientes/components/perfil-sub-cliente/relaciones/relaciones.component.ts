@@ -27,7 +27,6 @@ export class RelacionesComponent implements OnInit {
   ngOnInit(): void {
     this.getHistorialCambios();
     this.displayedColumns = this.options === true ? ['Opciones', 'Cliente', 'DescripCliente', 'Status'] : ['Cliente', 'DescripCliente', 'Status']
-
   }
 
   getHistorialCambios() {
@@ -68,10 +67,11 @@ export class RelacionesComponent implements OnInit {
       data: {},
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.subcliente = result;
-      this.historialCambios.push(this.subcliente);
-      this.dataSource.data = this.historialCambios;
-
+      if (result) {
+        this.subcliente = result;
+        this.historialCambios.push(this.subcliente);
+        this.dataSource.data = this.historialCambios;
+      }
     });
   }
 }

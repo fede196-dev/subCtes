@@ -13,9 +13,9 @@ export class SubClientesService {
 
   constructor(private http: HttpClient) { }
 
-    getSubClientes():Observable<ISubclienteGrid[]>{
-      return this.http.get<ISubclienteGrid[]>(this.url + 'subClientesGrid');
-    }
+  getSubClientes(): Observable<ISubclienteGrid[]> {
+    return this.http.get<ISubclienteGrid[]>(this.url + 'subClientesGrid');
+  }
   getHistorial(): Observable<IHistorialCambios[]> {
     return this.http.get<IHistorialCambios[]>(this.url + 'historialCambios');
   }
