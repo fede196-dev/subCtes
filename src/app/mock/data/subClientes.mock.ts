@@ -87,7 +87,7 @@ const subClientesGrid: ISubclienteGrid[] = [
   {
     SubClienteCodigo: "11",
     SubClienteNombre: "ALFREDO TORBIO ZUÑAGUA CALLISAYA",
-    SubClienteNombreAbreviado: "T. ALFREDO  ",
+    SubClienteNombreAbreviado: "T. ALFREDO",
     SubClienteDomicilio: "ZONA PEDRO DOMINGO MURILLO#5083 ",
     SubClienteStatus: 1,
     SubClienteTelefono: "  ",
