@@ -60,6 +60,16 @@ th {
   }
 }
 
+.expanded-box-relations{
+  position: absolute;
+  top: 20%;
+  right: 28%;
+  z-index: 1;
+  width: 50%;
+  mat-card {
+    padding: 10% 0 5% 0;
+  }
+}
 .close-button {
   position: absolute;
   left: 93%;

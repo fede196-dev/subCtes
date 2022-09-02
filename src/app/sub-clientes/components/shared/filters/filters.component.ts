@@ -1,5 +1,6 @@
-import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ISubClientesParams } from 'src/app/sub-clientes/models/request/subClienteParams.model';
 import { ISubclienteGrid } from 'src/app/sub-clientes/models/response/listado-sub-clientes/subClientes-grid.model';
 import { SubClientesService } from 'src/app/sub-clientes/services/sub-clientes.service';
 
@@ -13,10 +14,13 @@ export class FiltersComponent implements OnInit {
   expandedBox: boolean;
   formFilters: FormGroup;
   @Output() foundSubCliente: EventEmitter<ISubclienteGrid> = new EventEmitter();
+  @Input () relation: boolean;
+  params: ISubClientesParams = {}
   constructor(private subClienteService: SubClientesService) { }
 
   ngOnInit(): void {
     this.createFormGroup();
+    this.params.Pais = 'BO'
   }
 
   expandBox() {
@@ -40,7 +44,7 @@ export class FiltersComponent implements OnInit {
     const estado = this.formFilters.get(['Status'])?.value;
     const nit = this.formFilters.get(['NIT'])?.value;
 
-    this.subClienteService.getSubClientes().subscribe(subClientesItems => {
+    this.subClienteService.getSubClientes(this.params).subscribe(subClientesItems => {
       const found = subClientesItems.filter(subClientes => {
         return subClientes.SubClienteCodigo.toString() === codigo && subClientes.SubClienteStatus.toString() === estado;
       });

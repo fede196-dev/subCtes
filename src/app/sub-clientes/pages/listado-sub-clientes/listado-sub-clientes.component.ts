@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import Swal from 'sweetalert2';
+import { ISubClientesParams } from '../../models/request/subClienteParams.model';
 import { ISubclienteGrid } from '../../models/response/listado-sub-clientes/subClientes-grid.model';
 import { SubClientesService } from '../../services/sub-clientes.service';
 
@@ -24,6 +25,16 @@ export class ListadoSubClientesComponent implements OnInit {
   expandedBox = false;
   formFilters: FormGroup;
   subClienteFound: ISubclienteGrid;
+  params: ISubClientesParams = {
+    Pais: 'BO',
+    EmpresaCodigo: '',
+    Subclientecodigo: '',
+    Subclientenombre: '',
+    SubClienteStatus: 1,
+    SubClienteIdentificacionTributaria: '',
+    Cantidadfilas: '10',
+    Registrosskip: '1'
+  }
   constructor(private subClienteService: SubClientesService) {
   }
 
@@ -32,12 +43,12 @@ export class ListadoSubClientesComponent implements OnInit {
     this.getSubClientesGrid();
   }
 
-  subCliFound(cliente:ISubclienteGrid){
-    console.log('llega',cliente);
+  subCliFound(cliente: ISubclienteGrid) {
+    console.log('llega', cliente);
 
   }
   getSubClientesGrid() {
-    this.subClienteService.getSubClientes().subscribe(subClientesItems => {
+    this.subClienteService.getSubClientes(this.params).subscribe(subClientesItems => {
       this.subClientesItems = subClientesItems;
       this.dataSource = new MatTableDataSource(subClientesItems);
       this.dataSource.paginator = this.paginator;
@@ -81,7 +92,7 @@ export class ListadoSubClientesComponent implements OnInit {
     }
 
 
-    this.subClienteService.getSubClientes().subscribe(subClientesItems => {
+    this.subClienteService.getSubClientes(this.params).subscribe(subClientesItems => {
       const found = subClientesItems.filter(subClientes => {
         return subClientes.SubClienteCodigo.toString() === codigo && subClientes.SubClienteStatus.toString() === estado;
       });

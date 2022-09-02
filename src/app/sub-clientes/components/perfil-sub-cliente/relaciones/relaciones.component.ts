@@ -63,7 +63,7 @@ export class RelacionesComponent implements OnInit {
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogNewRelacionComponent, {
-      width: '50%',
+      width: '70%',
       data: {},
     });
     dialogRef.afterClosed().subscribe(result => {

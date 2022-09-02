@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ISubClientesParams } from 'src/app/sub-clientes/models/request/subClienteParams.model';
 import { SubClientesService } from 'src/app/sub-clientes/services/sub-clientes.service';
 
 @Component({
@@ -12,6 +13,16 @@ export class InfoSubClienteComponent implements OnInit {
   formSubClientes: FormGroup
   @Input() view: string;
   @Input() codigoSubCliente: number;
+  params: ISubClientesParams = {
+    Pais: 'BO',
+    EmpresaCodigo: '',
+    Subclientecodigo: '',
+    Subclientenombre: '',
+    SubClienteStatus: 1,
+    SubClienteIdentificacionTributaria: '',
+    Cantidadfilas: '10',
+    Registrosskip: '1'
+  };
   active: boolean;
   constructor(private subClienteService: SubClientesService) { }
 
@@ -43,22 +54,27 @@ export class InfoSubClienteComponent implements OnInit {
     })
   }
   setFormGroup() {
-    this.subClienteService.getSubClientes().subscribe(subCliente => {
+    this.subClienteService.getSubClientes(this.params).subscribe(subCliente => {
       const found = subCliente.find(subCli => subCli.SubClienteCodigo.toString() === this.codigoSubCliente.toString());
-      this.formSubClientes.controls['CodigoSubCliente'].setValue(found?.SubClienteCodigo);
-      this.formSubClientes.controls['NombreCompleto'].setValue(found?.SubClienteNombre);
-      this.formSubClientes.controls['Status'].setValue(found?.SubClienteStatus === 1 ? 'Activo' : 'Inactivo');
-      this.active = found?.SubClienteStatus === 1;
-      this.formSubClientes.controls['NombreAbreviado'].setValue(found?.SubClienteNombreAbreviado);
-      this.formSubClientes.controls['NroTelefono'].setValue(found?.SubClienteTelefono);
-      this.formSubClientes.controls['Domicilio'].setValue(found?.SubClienteDomicilio);
-      this.formSubClientes.controls['CarnetIdentidad'].setValue(found?.SubClienteCarnetIdentidad);
-      this.formSubClientes.controls['TipoDocumentoCliente'].setValue(found?.SubClienteTipoDocumento);
-      this.formSubClientes.controls['IdentificacionTributaria'].setValue(found?.SubClienteIdentificacionTributaria);
-      this.formSubClientes.controls['Localidad'].setValue(found?.SubClienteLocalidad);
-      this.formSubClientes.controls['DescripAbreviadaLocalidad'].setValue(found?.SubClienteLocalidad);
-      this.formSubClientes.controls['Departamento'].setValue(found?.SubClienteDepartamento);
-      this.formSubClientes.controls['Email'].setValue(found?.SubClienteEmail);
+      if(found){
+        this.formSubClientes.controls['CodigoSubCliente'].setValue(found?.SubClienteCodigo);
+        this.formSubClientes.controls['NombreCompleto'].setValue(found?.SubClienteNombre);
+        this.formSubClientes.controls['Status'].setValue(found?.SubClienteStatus === 1 ? 'Activo' : 'Inactivo');
+        this.active = found?.SubClienteStatus === 1;
+        this.formSubClientes.controls['NombreAbreviado'].setValue(found?.SubClienteNombreAbreviado);
+        this.formSubClientes.controls['NroTelefono'].setValue(found?.SubClienteTelefono);
+        this.formSubClientes.controls['Domicilio'].setValue(found?.SubClienteDomicilio);
+        this.formSubClientes.controls['CarnetIdentidad'].setValue(found?.SubClienteCarnetIdentidad);
+        this.formSubClientes.controls['TipoDocumentoCliente'].setValue(found?.SubClienteTipoDocumento);
+        this.formSubClientes.controls['IdentificacionTributaria'].setValue(found?.SubClienteIdentificacionTributaria);
+        const Localidad : string= found?.SubClienteLocalidadCodigo.toString() + ' - ' +  found?.SubClienteLocalidad.toString();
+        this.formSubClientes.controls['Localidad'].setValue(Localidad);
+        this.formSubClientes.controls['DescripAbreviadaLocalidad'].setValue(found?.SubClienteLocalidad);
+        const Departamento : string= found?.SubClienteDepartamentoCodigo.toString() + ' - ' +  found?.SubClienteDepartamento.toString();
+        this.formSubClientes.controls['Departamento'].setValue(Departamento);
+        this.formSubClientes.controls['Email'].setValue(found?.SubClienteEmail);
+      }
+
 
       if (this.view === 'profile')
         this.formSubClientes.disable();

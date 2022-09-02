@@ -1,21 +1,26 @@
 import { HttpParams } from '@angular/common/http';
 
 export abstract class Helpers {
-    static toHttpParams(o: Object): HttpParams {
-        const array = Object.getOwnPropertyNames(o);
-        let paramObject = new HttpParams();
-        let index = 0;
-        array.forEach(propName => {
-            let value: any =  [array[index]];
-            if (value === undefined || isNaN(value)) {
-                value = 0;
-            }
-            paramObject = paramObject.set(propName, value.toString());
+  static toHttpParams(o: Object): HttpParams {
+    const array = Object.getOwnPropertyNames(o);
+    const arrayValues = Object.getOwnPropertyDescriptors(o)
+    console.log(arrayValues);
 
-            index++;
-        });
+    console.log();
 
-        return paramObject;
-    }
+    let paramObject = new HttpParams();
+    let index = 0;
+    array.forEach(propName => {
+      let value: any = arrayValues[array[index]].value
+      if (value === undefined) {
+
+        value = '';
+      }
+      paramObject = paramObject.set(propName, value.toString());
+      index++;
+    });
+
+    return paramObject;
+  }
 
 }

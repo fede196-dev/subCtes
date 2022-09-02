@@ -4,7 +4,7 @@
     <mat-icon *ngIf="expandedBox" class="expand-white">expand_less</mat-icon>
   </button>
 </div>
-<div [hidden]="!expandedBox" class="expanded-box">
+<div [hidden]="!expandedBox"  [ngClass]="!relation ? 'expanded-box' : 'expanded-box-relations'">
   <mat-card>
     <form [formGroup]="formFilters">
       <button class="close-button" (click)="expandBox()" mat-button>

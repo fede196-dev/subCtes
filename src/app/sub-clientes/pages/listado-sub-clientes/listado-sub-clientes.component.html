@@ -2,21 +2,14 @@
   <mat-card>
     <div fxLayout="row" fxLayoutAlign="center start">
       <mat-form-field fxFlex="20" class="filter" appearance="standard">
-        <input
-          matInput
-          (keyup)="applyFilter($event)"
-          placeholder="Buscar por Nombre"
-          #input
-        />
+        <input matInput (keyup)="applyFilter($event)" placeholder="Buscar por Nombre" #input />
       </mat-form-field>
       <div fxFlex="60" class="filter">
         <app-filters (foundSubCliente)="subCliFound($event)"></app-filters>
       </div>
 
       <div fxFlex="20" class="add-button">
-        <a [routerLink]="['perfilSubCliente', 'nuevo']" mat-raised-button
-          >Nuevo Sub Cliente</a
-        >
+        <a [routerLink]="['perfilSubCliente', 'nuevo']" mat-raised-button>Nuevo Sub Cliente</a>
       </div>
     </div>
   </mat-card>
@@ -26,44 +19,23 @@
       <ng-container matColumnDef="Opciones">
         <th mat-header-cell *matHeaderCellDef>Opciones</th>
         <td mat-cell *matCellDef="let row">
-          <button
-            [routerLink]="['perfilSubCliente', row.SubClienteCodigo, 'edit']"
-            matTooltip="Modificar"
-            mat-icon-button
-          >
+          <button [routerLink]="['perfilSubCliente', row.SubClienteCodigo, 'edit']" matTooltip="Modificar"
+            mat-icon-button>
             <mat-icon>edit</mat-icon>
           </button>
-          <button
-            matTooltip="Baja"
-            color="warn"
-            (click)="changeStatusSubCliente(row, 0)"
-            [disabled]="row.SubClienteStatus !== 1"
-            mat-icon-button
-          >
+          <button matTooltip="Baja" color="warn" (click)="changeStatusSubCliente(row, 0)"
+            [disabled]="row.SubClienteStatus !== 1" mat-icon-button>
             <mat-icon>close</mat-icon>
           </button>
-          <button
-            matTooltip="Reactivar"
-            (click)="changeStatusSubCliente(row, 1)"
-            class="alta-sub-cliente"
-            [disabled]="row.SubClienteStatus === 1"
-            mat-icon-button
-          >
+          <button matTooltip="Reactivar" (click)="changeStatusSubCliente(row, 1)" class="alta-sub-cliente"
+            [disabled]="row.SubClienteStatus === 1" mat-icon-button>
             <mat-icon>done</mat-icon>
           </button>
-          <button
-            [routerLink]="['relaciones', row.SubClienteCodigo]"
-            matTooltip="Relacionar"
-            mat-icon-button
-          >
+          <button [routerLink]="['relaciones', row.SubClienteCodigo]" matTooltip="Relacionar" mat-icon-button>
             <mat-icon>dynamic_feed</mat-icon>
           </button>
-          <button
-            [routerLink]="['perfilSubCliente', row.SubClienteCodigo, 'profile']"
-            routerLinkActive
-            matTooltip="Visualizar Perfil"
-            mat-icon-button
-          >
+          <button [routerLink]="['perfilSubCliente', row.SubClienteCodigo, 'profile']" routerLinkActive
+            matTooltip="Visualizar Perfil" mat-icon-button>
             <mat-icon>person</mat-icon>
           </button>
         </td>
@@ -76,23 +48,15 @@
 
       <ng-container matColumnDef="RazonSocial">
         <th mat-header-cell *matHeaderCellDef>Razón Social</th>
-        <td
-          mat-cell
-          class="name-select"
-          [routerLink]="['perfilSubCliente', row.SubClienteCodigo, 'profile']"
-          *matCellDef="let row"
-        >
+        <td mat-cell class="name-select" [routerLink]="['perfilSubCliente', row.SubClienteCodigo, 'profile']"
+          *matCellDef="let row">
           {{ row.SubClienteNombreAbreviado }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="Status">
         <th mat-header-cell *matHeaderCellDef>Status</th>
-        <td
-          [ngClass]="row.SubClienteStatus === 1 ? 'status-green' : 'status-red'"
-          mat-cell
-          *matCellDef="let row"
-        >
+        <td [ngClass]="row.SubClienteStatus === 1 ? 'status-green' : 'status-red'" mat-cell *matCellDef="let row">
           {{ row.SubClienteStatus === 1 ? "Activo" : "Inactivo" }}
         </td>
       </ng-container>
@@ -112,9 +76,6 @@
       </tr>
     </table>
 
-    <mat-paginator
-      [pageSizeOptions]="[5, 10, 25, 100]"
-      aria-label="Select page of users"
-    ></mat-paginator>
+    <mat-paginator [hidePageSize]="true" aria-label="Select page of users"></mat-paginator>
   </div>
 </div>
