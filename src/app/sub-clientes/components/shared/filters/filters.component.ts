@@ -44,7 +44,7 @@ export class FiltersComponent implements OnInit {
     const estado = this.formFilters.get(['Status'])?.value;
     const nit = this.formFilters.get(['NIT'])?.value;
 
-    this.subClienteService.getSubClientes(this.params).subscribe(subClientesItems => {
+    this.subClienteService.getSubClientes().subscribe(subClientesItems => {
       const found = subClientesItems.filter(subClientes => {
         return subClientes.SubClienteCodigo.toString() === codigo && subClientes.SubClienteStatus.toString() === estado;
       });

@@ -54,7 +54,7 @@ export class InfoSubClienteComponent implements OnInit {
     })
   }
   setFormGroup() {
-    this.subClienteService.getSubClientes(this.params).subscribe(subCliente => {
+    this.subClienteService.getSubClientes().subscribe(subCliente => {
       const found = subCliente.find(subCli => subCli.SubClienteCodigo.toString() === this.codigoSubCliente.toString());
       if(found){
         this.formSubClientes.controls['CodigoSubCliente'].setValue(found?.SubClienteCodigo);

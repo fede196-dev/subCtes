@@ -48,7 +48,7 @@ export class ListadoSubClientesComponent implements OnInit {
 
   }
   getSubClientesGrid() {
-    this.subClienteService.getSubClientes(this.params).subscribe(subClientesItems => {
+    this.subClienteService.getSubClientes().subscribe(subClientesItems => {
       this.subClientesItems = subClientesItems;
       this.dataSource = new MatTableDataSource(subClientesItems);
       this.dataSource.paginator = this.paginator;
@@ -92,7 +92,7 @@ export class ListadoSubClientesComponent implements OnInit {
     }
 
 
-    this.subClienteService.getSubClientes(this.params).subscribe(subClientesItems => {
+    this.subClienteService.getSubClientes().subscribe(subClientesItems => {
       const found = subClientesItems.filter(subClientes => {
         return subClientes.SubClienteCodigo.toString() === codigo && subClientes.SubClienteStatus.toString() === estado;
       });

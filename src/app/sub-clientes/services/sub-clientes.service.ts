@@ -17,14 +17,14 @@ export class SubClientesService {
 
   constructor(private http: HttpClient) { }
 
-/*   getSubClientes(): Observable<ISubclienteGrid[]> {
+  getSubClientes(): Observable<ISubclienteGrid[]> {
     return this.http.get<ISubclienteGrid[]>(this.url + 'subClientesGrid');
-  } */
-  getSubClientes(params: ISubClientesParams): Observable<ISubclienteGrid[]> {
+  }
+/*   getSubClientes(params: ISubClientesParams): Observable<ISubclienteGrid[]> {
     return this.http.get<ISubclienteGrid[]>(`${this.url2}/quilmesportal_clientes_bo/Core/Params/APISubClientesConsultas/GetBandejaSubClientes`, {
       params: Helpers.toHttpParams(params)
     });
-  }
+  } */
   getHistorial(): Observable<IHistorialCambios[]> {
     return this.http.get<IHistorialCambios[]>(this.url + 'historialCambios');
   }
