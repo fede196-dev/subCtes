@@ -24,6 +24,7 @@ const clientesRelacionados: IClientesRelacionados[] = [
     Nit: 30312312,
     selected: false
   },
+
   {
     ClienteID: 592289,
     DescripCliente: 'WILFREDO GUZMÁN FLORES',
